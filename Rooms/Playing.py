@@ -4,8 +4,8 @@ import random
 
 
 class Playing(Level):
-    def __init__(self, room):
-        Level.__init__(self, room)
+    def __init__(self, room, joysticks):
+        Level.__init__(self, room, joysticks)
 
         self.set_background_image('background.png')
 
