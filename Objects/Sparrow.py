@@ -45,14 +45,14 @@ class Sparrow(RoomObject):
         if self.y_speed < -3:
             self.set_image(self.player_images_up[self.animation_count], 64, 64)
         elif self.y_speed > 8:
-            self.set_image(self.player_images_down[self.animation_count], 74, 68)
+            self.set_image(self.player_images_down[self.animation_count], 64, 64)
         else:
-            self.set_image(self.player_images[self.animation_count], 64, 64)
+            self.set_image(self.player_images[self.animation_count], 52, 52)
 
         if self.y < 435:
             self.set_timer(4, self.animate)
         else:
-            self.set_image(self.player_images_down[2], 74, 68)
+            self.set_image(self.player_images_down[2], 64, 64)
 
     def key_pressed(self, key):
         if key[pygame.K_SPACE] and Globals.scroll_speed != 0:
@@ -76,7 +76,7 @@ class Sparrow(RoomObject):
         elif self.y <= 0:
             self.y = 0
 
-    def handle_collision(self, other):
+    def handle_collision(self, other, other_type):
         Globals.scroll_speed = 0
         if Globals.SCORE > Globals.high_score:
             Globals.high_score = Globals.SCORE
